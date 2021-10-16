@@ -64,6 +64,7 @@ class Cell extends Equatable {
   bool get bottomOpen => (routes & Direction.bottom.intValue) != 0;
   bool get notVisited => routes == 0;
   bool sideOpen(Direction direction) => (routes & direction.intValue) != 0;
+  bool get anySideOpen => routes != 0;
 
   @override
   toString() =>
