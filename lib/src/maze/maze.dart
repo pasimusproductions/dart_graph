@@ -64,7 +64,10 @@ class Cell extends Equatable {
   bool get bottomOpen => (routes & Direction.bottom.intValue) != 0;
   bool get notVisited => routes == 0;
   bool sideOpen(Direction direction) => (routes & direction.intValue) != 0;
-  bool get anySideOpen => routes != 0;
+
+  /// Return true if any other side than [excludedDirection] open
+  bool anyOtherSideOpen(Direction excludedDirection) =>
+      (routes ^ excludedDirection.intValue) != 0;
 
   @override
   toString() =>
