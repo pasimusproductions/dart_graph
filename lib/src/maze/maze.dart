@@ -78,14 +78,14 @@ class Cell extends Equatable {
 
 /// Maze of cells, currently consisting of 10 x 10 cells
 class Maze {
-  final int size = 10; // TODO
+  final int size;
   late List<List<Cell>> cells;
   late AdjacencyList<Cell> graph;
   late List<Cell> optimalPath;
 
   /// Generate maze with backtracking algorithm
   /// This is from: https://weblog.jamisbuck.org/2010/12/27/maze-generation-recursive-backtracking
-  Maze.generate() {
+  Maze.generate({this.size = 10}) {
     //TODO: Some nicer way to fill with separate Cell objects
 
     cells = List.empty(growable: true);
